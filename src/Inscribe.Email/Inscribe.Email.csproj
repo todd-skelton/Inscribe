@@ -1,7 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Title>Inscribe Email</Title>
+    <Description>Inscribe's logging provider for emailing. Useful for sending out messages for critical application errors.</Description>
   </PropertyGroup>
 
   <ItemGroup>

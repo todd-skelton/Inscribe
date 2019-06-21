@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Title>Inscribe Entity Framework Core</Title>
+    <Description>Inscribe's logging provider for Entity Framework Core. Useful for logging application errors in a database.</Description>
   </PropertyGroup>
 
   <ItemGroup>
