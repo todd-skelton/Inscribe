@@ -1,7 +1,7 @@
 [![](https://img.shields.io/nuget/v/Inscribe.svg)](https://www.nuget.org/packages/Inscribe) [![](https://img.shields.io/nuget/vpre/Inscribe.svg)](https://www.nuget.org/packages/Inscribe)
 
 # Inscribe
-Paging made easy with Linq syntax and extensions. Translates directly to SQL for database-side paging when using Entity Framework.
+Logging provider abstraction for .NET's logging API—includes email and Entity Framework Core providers.
 
 ## Installation
 ### Package Manager
