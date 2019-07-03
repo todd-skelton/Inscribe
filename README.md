@@ -11,4 +11,4 @@ Logging provider abstraction for .NET's logging API—includes email and Entity Fr
 `dotnet add package Inscribe`
 
 ### Coming Soon
-Documentation coming soon. Check the samples for more info.
+Documentation coming soon. Check the source code if you'd like to use it now.
