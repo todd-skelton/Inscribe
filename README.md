@@ -52,6 +52,7 @@ Your appsettings for email logging should look something like this.
 
 Adding your email logger is just as easy as calling `.AddEmail()` to the built-in .NET Core logging configuration.
 
+```csharp
 public class Startup
 {
     public Startup(IConfiguration configuration)
@@ -69,6 +70,7 @@ public class Startup
         services.AddLogging(builder => builder.AddEmail());
     }
 }
+```
 
 #### Using the logging
 
