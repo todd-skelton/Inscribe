@@ -76,4 +76,4 @@ public class Startup
 
 Please check out the offical documentation on .NET Core logger for information on how to use the logger. This library is just a provider.
 
-[https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1)
+[https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging)
