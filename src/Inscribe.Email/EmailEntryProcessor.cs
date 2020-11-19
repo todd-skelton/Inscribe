@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Mail;
 
 namespace Inscribe.Email
@@ -11,6 +12,7 @@ namespace Inscribe.Email
         public IEnumerable<MailAddress> To;
         public IEnumerable<MailAddress> CC;
         public IEnumerable<MailAddress> Bcc;
+        public TimeSpan? ThrottleTimeout;
 
         public EmailEntryProcessor() : base("Email logger entry processing thread", 32)
         {

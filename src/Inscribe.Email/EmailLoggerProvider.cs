@@ -43,6 +43,7 @@ namespace Inscribe.Email
             _entryProcessor.To = _options.To?.Select(e => new MailAddress(e.Address, e.DisplayName)) ?? throw new ArgumentNullException(nameof(_options.To));
             _entryProcessor.CC = _options.CC?.Select(e => new MailAddress(e.Address, e.DisplayName)) ?? new List<MailAddress>();
             _entryProcessor.Bcc = _options.Bcc?.Select(e => new MailAddress(e.Address, e.DisplayName)) ?? new List<MailAddress>();
+            _entryProcessor.ThrottleTimeout = _options.ThrottleTimeout;
         }
 
         protected override EmailLogger CreateLoggerImplementation(string name)

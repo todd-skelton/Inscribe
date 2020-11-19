@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Inscribe.Email
 {
@@ -17,5 +18,7 @@ namespace Inscribe.Email
         public IEnumerable<EmailAddressSettings> Bcc { get; set; }
 
         public bool IncludeScopes { get; set; }
+
+        public TimeSpan? ThrottleTimeout { get; set; }
     }
 }

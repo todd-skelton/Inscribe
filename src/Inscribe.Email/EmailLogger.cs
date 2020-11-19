@@ -7,9 +7,20 @@ namespace Inscribe.Email
 {
     public class EmailLogger : LoggerBase<EmailEntryProcessor, MailMessage>
     {
+        private DateTime? LastSent;
+
         internal EmailLogger(string name, IEntryFactory<MailMessage> entryFactory, EmailEntryProcessor entryProcessor, IExternalScopeProvider scopeProvider)
             : base(name, entryFactory, entryProcessor ?? new EmailEntryProcessor(), scopeProvider)
         {
+        }
+
+        public TimeSpan? ThrottleTimeout
+        {
+            get { return _entryProcessor.ThrottleTimeout; }
+            set
+            {
+                _entryProcessor.ThrottleTimeout = value;
+            }
         }
 
         public string ApplicationName
@@ -68,7 +79,7 @@ namespace Inscribe.Email
 
         public override void QueueEntry(MailMessage entry)
         {
-            if (entry != null)
+            if (entry != null && (ThrottleTimeout is null || DateTime.UtcNow > LastSent.Value.Add(ThrottleTimeout.Value)))
             {
                 entry.From = From;
                 entry.Subject = $"{ApplicationName} : {entry.Subject}";
@@ -87,6 +98,7 @@ namespace Inscribe.Email
                 }
 
                 _entryProcessor.EnqueueEntry(entry);
+                LastSent = DateTime.UtcNow;
             }
         }
     }
