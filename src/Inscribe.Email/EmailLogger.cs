@@ -79,7 +79,7 @@ namespace Inscribe.Email
 
         public override void QueueEntry(MailMessage entry)
         {
-            if (entry != null && (ThrottleTimeout is null || DateTime.UtcNow > LastSent.Value.Add(ThrottleTimeout.Value)))
+            if (entry is MailMessage && (ThrottleTimeout is null  || LastSent is null || DateTime.UtcNow > LastSent.Value.Add(ThrottleTimeout.Value)))
             {
                 entry.From = From;
                 entry.Subject = $"{ApplicationName} : {entry.Subject}";
