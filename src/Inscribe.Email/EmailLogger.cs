@@ -79,27 +79,32 @@ namespace Inscribe.Email
 
         public override void QueueEntry(MailMessage entry)
         {
-            if (entry is MailMessage && (ThrottleTimeout is null  || LastSent is null || DateTime.UtcNow > LastSent.Value.Add(ThrottleTimeout.Value)))
+            if (entry is null)
+                return;
+
+
+
+            if (LastSent is DateTime && ThrottleTimeout is TimeSpan && DateTime.UtcNow < LastSent.Value.Add(ThrottleTimeout.Value))
+                return;
+
+            entry.From = From;
+            entry.Subject = $"{ApplicationName} : {entry.Subject}";
+
+            foreach (var recipient in To)
             {
-                entry.From = From;
-                entry.Subject = $"{ApplicationName} : {entry.Subject}";
-
-                foreach (var recipient in To)
-                {
-                    entry.To.Add(new MailAddress(recipient.Address, recipient.DisplayName));
-                }
-                foreach (var recipient in CC)
-                {
-                    entry.To.Add(new MailAddress(recipient.Address, recipient.DisplayName));
-                }
-                foreach (var recipient in Bcc)
-                {
-                    entry.To.Add(new MailAddress(recipient.Address, recipient.DisplayName));
-                }
-
-                _entryProcessor.EnqueueEntry(entry);
-                LastSent = DateTime.UtcNow;
+                entry.To.Add(new MailAddress(recipient.Address, recipient.DisplayName));
             }
+            foreach (var recipient in CC)
+            {
+                entry.To.Add(new MailAddress(recipient.Address, recipient.DisplayName));
+            }
+            foreach (var recipient in Bcc)
+            {
+                entry.To.Add(new MailAddress(recipient.Address, recipient.DisplayName));
+            }
+
+            _entryProcessor.EnqueueEntry(entry);
+            LastSent = DateTime.UtcNow;
         }
     }
 }

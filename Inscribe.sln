@@ -30,6 +30,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inscribe.Email", "src\Inscr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inscribe.EntityFrameworkCore", "src\Inscribe.EntityFrameworkCore\Inscribe.EntityFrameworkCore.csproj", "{811ABDFC-6949-4772-AC21-4A8424187404}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSample", "samples\EmailSample\EmailSample.csproj", "{295FF88F-8996-4A70-8D95-34C68195EA29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,12 +54,17 @@ Global
 		{811ABDFC-6949-4772-AC21-4A8424187404}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{811ABDFC-6949-4772-AC21-4A8424187404}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{811ABDFC-6949-4772-AC21-4A8424187404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{295FF88F-8996-4A70-8D95-34C68195EA29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{295FF88F-8996-4A70-8D95-34C68195EA29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{295FF88F-8996-4A70-8D95-34C68195EA29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{295FF88F-8996-4A70-8D95-34C68195EA29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C12C002B-0C24-421C-83B8-8604B7FA220E} = {9A2D49C3-AF54-4CB9-B3FC-BB81D4006419}
+		{295FF88F-8996-4A70-8D95-34C68195EA29} = {DB13B096-2EDC-4E64-8F5B-876F0D870880}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BAD19EB-ADC2-4B3A-B2F5-C2B317123FD7}
